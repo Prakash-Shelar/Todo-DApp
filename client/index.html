@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Todo Dapp</h1>
+
+    <input type="text" name="" id="TaskInput" />
+    <button type="button" id="TaskSave" >Add to List</button>
+    <br>
+    <br>
+    <input type="=text" id = "SearchTask">
+    <button type="button" id="SearchTaskBtn">Search Task by Task Id</button>
+    <br>
+    <br>
+    <label>New Task:</label>
+    <p id="taskCreatedEvent"></p>
+    <br>
+    <label>Search Result:</label>
+    <p id="searchedTask"></p>
+    <br>
+
+    <!-- <ul id = "TaskList">
+        <div class="taskTemplate" class="checkbox">
+            <label>
+                <input type="checkbox" />
+                <span class="content"></span>
+            </label>
+        </div>
+    </ul> -->
+
+
+    <!-- <table id="TaskTable" class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Task Id</th>
+                <th>Tasks</th>
+                <th>Task Created ON</th>
+                <th>Status</th>
+                <th>Task CompletedON</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+    </table> -->
+
+    <script src="artifacts/TaskManagerAbi.js" ></script>
+    <script src="./node_modules/web3/dist/web3.min.js" ></script>
+    <script src="index.js"></script>
+</body>
+</html>
