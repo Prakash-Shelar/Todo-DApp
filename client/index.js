@@ -23,45 +23,47 @@ const SearchTaskBtn = document.getElementById("SearchTaskBtn");
 const searchedTask = document.getElementById("searchedTask");
 
 const taskCreatedEvent = document.getElementById("taskCreatedEvent");
-const TaskTable = document.getElementById("TaskTable");
-const TaskList = document.getElementById("TaskList");
-
-
-
-// let taskCounter;
-// TaskContract.methods.total_Tasks().call().then(
-//     (data)=>{
-//         taskCounter = Number(data);
-//         console.log(taskCounter);
-//     }
-// );
-// console.log(Number.isInteger(taskCounter));
-// // const taskTemplate = document.getElementsByClassName("taskTemplate");
-
-// let task;
-// let TId = 0;
-// for(var i = 1; i <= taskCounter; i++) {
-//     console.log(i);
-//     TaskContract.methods.getTask(1).call().on("error",
-//     function (error, receipt) {
-//         console.log({error, receipt});
-//     }
-// ).then(
-//         (data)=>{
-//             console.log(data);
-//             TId = parseInt(data[0]);
-//     }
-//     );
-// }   
-// console.log(TId);
-
+var ul = document.querySelector("ul");
 
 
 
 // Subscribe Events
 TaskContract.events.taskCreated().on("data", (event)=>{
-    taskCreatedEvent.innerHTML = event.returnValues.taskId;
+        
+    let Temptask = event.returnValues;
+    var li = document.createElement('li');
+    var eventT = "";
+    for (var i = 0; i < 4; i++) {
+        if(i == 2){            
+            var ts = new Date(Temptask[i]*1000);
+            
+            var t = ts.getDate()+
+            "/"+(ts.getMonth()+1)+
+            "/"+ts.getFullYear()+
+            " "+ts.getHours()+
+            ":"+ts.getMinutes()+
+            ":"+ts.getSeconds();
+            
+            var T = t + " || ";
+        }
+        else{
+            var T = Temptask[i] + " || ";
+        }
+        eventT += T;
+        li.appendChild(document.createTextNode(T));
+        ul.appendChild(li);
+    }
+    taskCreatedEvent.innerHTML = eventT;
+
+
+    var dBtn = document.createElement("button");
+	dBtn.appendChild(document.createTextNode("Done"));
+	li.appendChild(dBtn);
+	dBtn.addEventListener("click", deleteListItem);
+    
 });
+
+
 // Define Callback functions
 
 // Create new task
@@ -91,10 +93,31 @@ const handleSearchTaskBtn = () => {
     TaskContract.methods.getTask(searchElement).call().then(
         (data)=>{
             console.log("Getter",data);
-            searchedTask.innerHTML = data[1];
+            // searchedTask.innerHTML = data[1];
+            var eventT = "";
+            for (var i = 0; i < 5; i++) {
+                if(i == 2){            
+                    var ts = new Date(data[i]*1000);
+                    
+                    var t = ts.getDate()+
+                    "/"+(ts.getMonth()+1)+
+                    "/"+ts.getFullYear()+
+                    " "+ts.getHours()+
+                    ":"+ts.getMinutes()+
+                    ":"+ts.getSeconds();
+                    
+                    var T = t + " || ";
+                }
+                else{
+                    var T = data[i] + " || ";
+                }
+                eventT += T;
+            }
+            searchedTask.innerHTML = eventT;
         }
     );
 }
+
 
 // Add event listeners
 TaskInputElement.addEventListener("change",handleInputChange);
