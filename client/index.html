@@ -4,16 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-Do DApp</title>
 </head>
-<body>
-    <h1> Todo Dapp</h1>
+<style>
+    * { 
+    padding: 0; 
+    margin: 0; 
+    box-sizing: border-box; 
+    font-family: cursive; 
+  } 
+    
+  body { 
+    background: #f2f2f2; 
+    overflow: auto; 
+  } 
+    
+  h1{ 
+     text-align: center; 
+     margin: 5%; 
+     font-size: 3rem; 
+     text-decoration: underline; 
+  } 
 
+input[type=text] {
+    align-items: center;
+    border: none;
+    border-radius: 0;
+    width: 60%;
+    padding: 15px 22px;
+    margin: 10px 5px;
+    box-sizing: border-box;  
+}
+
+button{
+    background-color: #6c7eaf;
+    border: none;
+    color: white;
+    padding: 18px 36px;
+    text-decoration: none;
+    margin: 5px 4px;
+    cursor: pointer;  
+}
+
+  ul { 
+    text-align: lleft; 
+    margin: 0;
+    padding: 0;
+    padding: 7%; 
+    font-size: 1.5rem; 
+    list-style: circle; 
+  } 
+  ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+  
+</style>
+<body>
+    <h1> Todo DApp</h1>
+   
     <input type="text" name="" id="TaskInput" />
     <button type="button" id="TaskSave" >Add to List</button>
     <br>
     <br>
-    <input type="=text" id = "SearchTask">
+    <input type="text" id = "SearchTask" >
     <button type="button" id="SearchTaskBtn">Search Task by Task Id</button>
     <br>
     <br>
@@ -24,32 +77,13 @@
     <p id="searchedTask"></p>
     <br>
 	
-    <ul class="col-12 offset-0 col-sm-8 offset-sm-2">
-        
-	</ul>
-
-    <!-- <ul id = "TaskList">
-        <div class="taskTemplate" class="checkbox">
-            <label>
-                <input type="checkbox" />
-                <span class="content"></span>
-            </label>
-        </div>
-    </ul> -->
-
-
-    <!-- <table id="TaskTable" class="table table-bordered table-condensed table-striped">
-        <thead>
-            <tr>
-                <th>Task Id</th>
-                <th>Tasks</th>
-                <th>Task Created ON</th>
-                <th>Status</th>
-                <th>Task CompletedON</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-    </table> -->
+    <div>
+        <ul id = "taskList" class="col-12 offset-0 col-sm-8 offset-sm-2">
+            <li>Task id | |   Task   | |    Created ON    | |  Status  | |    Completed ON    | |</li>
+            <br>
+        </ul>
+    </div>
+    
 
     <script src="artifacts/TaskManagerAbi.js" ></script>
     <script src="./node_modules/web3/dist/web3.min.js" ></script>
