@@ -38,8 +38,7 @@ TaskContract.events.taskCreated().on("data", (event)=>{
     checkbox.type = "checkbox";
     checkbox.id = Temptask[0];
     checkbox.addEventListener('change', handleCheckEvent)
-    // checkbox.value = data[0];
-    // checkbox.name = "todo[]";
+
     li.appendChild(checkbox);
 
     var eventT = "";
