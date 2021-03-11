@@ -200,6 +200,9 @@ TaskContract.methods.total_Tasks().call().then(
                             
                             var T = t + " || ";
                         }
+                        else if(k == 4 && data[4]==0){
+                            var T = "";
+                        }
                         else if(k == 3){
                             if(data[3] == true){
                                 var T = "Completed" + " || ";
