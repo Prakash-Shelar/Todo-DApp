@@ -138,6 +138,9 @@ const handleSearchTaskBtn = () => {
                     
                     var T = t + " || ";
                 }
+                else if(i == 4 && data[4] == 0){
+                    continue;
+                }
                 else if(i == 3){
                     if(data[3] == true){
                         var T = "Completed" + " || ";
