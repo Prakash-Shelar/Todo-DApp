@@ -136,7 +136,7 @@ const handleSearchTaskBtn = () => {
                     ":"+ts.getMinutes()+
                     ":"+ts.getSeconds();
                     
-                    var T = t + " || ";
+                    var T = t;
                 }
                 else if(i == 4 && data[4] == 0){
                     continue;
@@ -146,7 +146,7 @@ const handleSearchTaskBtn = () => {
                         var T = "Completed" + " || ";
                     }
                     else{
-                        var T = "Not Completed" + " || ";
+                        var T = "Not Completed";
                     }
                 }
                 else{
@@ -200,17 +200,17 @@ TaskContract.methods.total_Tasks().call().then(
                             ":"+ts.getMinutes()+
                             ":"+ts.getSeconds();
                             
-                            var T = t + " || ";
+                            var T = t;
                         }
                         else if(k == 4 && data[4]==0){
-                            var T = "";
+                            continue;
                         }
                         else if(k == 3){
                             if(data[3] == true){
                                 var T = "Completed" + " || ";
                             }
                             else{
-                                var T = "Not Completed" + " || ";
+                                var T = "Not Completed";
                             }
                         }
                         else{
